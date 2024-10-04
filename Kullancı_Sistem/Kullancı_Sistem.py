@@ -8,9 +8,9 @@ inp1=""
 inp2=""
 
 
-with open("status.pkl","rb") as f:
+with open("Kullancı_Sistem/status.pkl","rb") as f:
     status=pickle.load(f)
-with open("users_passwords.pkl","rb") as f:
+with open("Kullancı_Sistem/users_passwords.pkl","rb") as f:
     users_passwords=pickle.load(f)
 
 while com!="kapat":
@@ -43,12 +43,13 @@ while com!="kapat":
             print("Kullanıcı adınızı veya şifrenizi yanlış girdiniz.")
 for i in status.keys():
     status[i]=False            
-with open("users_passwords.pkl","wb") as f:
+with open("Kullancı_Sistem/users_passwords.pkl","wb") as f:
     pickle.dump(users_passwords, f)
-with open("status.pkl","wb") as f:
+with open("Kullancı_Sistem/status.pkl","wb") as f:
     pickle.dump(status,f)
 
-
+print(users_passwords)
+print(status)
                 
             
             
