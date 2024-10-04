@@ -41,6 +41,8 @@ while com!="kapat":
         inp1=input("Çıkış yapmak istediğiniz kullanıcıyı giriniz: ")
         status[inp1]=False
     elif com=="giriş":
+        for i in status.keys():
+            status[i]=False
         inp1=input("Kullanıcı adınızı giriniz: ")
         inp2=input("Şifrenizi giriniz: ")
         if users_passwords[inp1]==inp2:
@@ -51,7 +53,8 @@ while com!="kapat":
         pickle.dump(users_passwords, f)
     with open("status.pkl","wb") as f:
         pickle.dump(status,f)
-
+for i in status.keys():
+    status[i]=False
 print(users_passwords)
 print(status)
             
