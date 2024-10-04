@@ -1,10 +1,18 @@
-users_passwords={"admin":"1234","user1":"1234","user2":"1234"}
-status={"admin":False,"user1":False,"user2":False}
+import pickle
+
+
 print("Kullanıcı eklemek için ekle\nKullanıcı silmek için sil\nGiriş yapmak için giriş\nÇıkış yapmak çıkış\nUygulamayı kapatmak için kapat komutlarını kullanınız.")
 print("Kullanıcı silmek için ya admin olarak giriş yapmış olmalısınız yada silmek istediğiniz kullanıcının şifresini doğru girmelisiniz.")
 com=""
 inp1=""
 inp2=""
+
+
+with open("status.pkl","rb") as f:
+    status=pickle.load(f)
+with open("users_passwords.pkl","rb") as f:
+    users_passwords=pickle.load(f)
+
 while com!="kapat":
     com=input("Ne yapmak istediğinizi giriniz: ")
     if com=="ekle":
@@ -27,16 +35,23 @@ while com!="kapat":
                 status.pop(inp1)
             else:
                 print("Silmek istediğiniz kullanıcının şifresini doğru girmelisiniz.")
+        
+
+    elif com=="çıkış":
+        inp1=input("Çıkış yapmak istediğiniz kullanıcıyı giriniz: ")
+        status[inp1]=False
+    elif com=="giriş":
         inp1=input("Kullanıcı adınızı giriniz: ")
         inp2=input("Şifrenizi giriniz: ")
-        
         if users_passwords[inp1]==inp2:
             status[inp1]=True
         else:
             print("Kullanıcı adınızı veya şifrenizi yanlış girdiniz.")
-    elif com=="çıkış":
-        inp1=input("Çıkış yapmak istediğiniz kullanıcıyı giriniz: ")
-        status[inp1]=False
+    with open("users_passwords.pkl","wb") as f:
+        pickle.dump(users_passwords, f)
+    with open("status.pkl","wb") as f:
+        pickle.dump(status,f)
+
 print(users_passwords)
 print(status)
             
