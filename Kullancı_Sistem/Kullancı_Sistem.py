@@ -2,7 +2,7 @@ import pickle
 
 
 print("Kullanıcı eklemek için ekle\nKullanıcı silmek için sil\nGiriş yapmak için giriş\nÇıkış yapmak çıkış\nUygulamayı kapatmak için kapat komutlarını kullanınız.")
-print("Kullanıcı silmek için ya admin olarak giriş yapmış olmalısınız yada silmek istediğiniz kullanıcının şifresini doğru girmelisiniz.")
+print("Kullanıcı silmek için o kulanıcıda oturum açmış yapmış olmalısınız.")
 com=""
 inp1=""
 inp2=""
@@ -22,19 +22,11 @@ while com!="kapat":
         status[inp1]=False
     elif com=="sil":
         inp1=input("Silmek istediğiniz kullanıcının kullanıcı adını giriniz: ")
-        try:
-            if status["admin"]==True:
-                users_passwords.pop(inp1)
-                status.pop(inp1)
-            else:
-                print("Kullanıcı silmek admin olarak giriş yapmış olmalısınız.")
-        except:
-            if users_passwords[inp1]==users_passwords.keys():
-                inp2=input("Silmek istediğiniz kullanıcının şifresini giriniz: ")
-                users_passwords.pop(inp1)
-                status.pop(inp1)
-            else:
-                print("Silmek istediğiniz kullanıcının şifresini doğru girmelisiniz.")
+        if status["admin"]==True or status[inp1]==True:
+            users_passwords.pop(inp1)
+            status.pop(inp1)
+        else:
+            print("Silmek istediğiniz kullanıcıda oturum açmış olmalısınız.")
         
 
     elif com=="çıkış":
