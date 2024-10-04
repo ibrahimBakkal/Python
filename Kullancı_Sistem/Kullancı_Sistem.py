@@ -41,15 +41,14 @@ while com!="kapat":
             status[inp1]=True
         else:
             print("Kullanıcı adınızı veya şifrenizi yanlış girdiniz.")
-    with open("users_passwords.pkl","wb") as f:
-        pickle.dump(users_passwords, f)
-    with open("status.pkl","wb") as f:
-        pickle.dump(status,f)
 for i in status.keys():
-    status[i]=False
-print(users_passwords)
-print(status)
-            
+    status[i]=False            
+with open("users_passwords.pkl","wb") as f:
+    pickle.dump(users_passwords, f)
+with open("status.pkl","wb") as f:
+    pickle.dump(status,f)
+
+
                 
             
             
