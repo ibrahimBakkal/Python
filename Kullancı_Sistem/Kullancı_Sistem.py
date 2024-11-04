@@ -1,21 +1,12 @@
 import pickle
-import tkinter as tk
-mainpage=tk.Tk()
+
 
 print("Kullanıcı eklemek için ekle\nKullanıcı silmek için sil\nGiriş yapmak için giriş\nÇıkış yapmak çıkış\nUygulamayı kapatmak için kapat komutlarını kullanınız.")
 print("Kullanıcı silmek için o kulanıcıda oturum açmış yapmış olmalısınız.")
 com=""
 inp1=""
 inp2=""
-button1=tk.Button(mainpage,text="Oturum Aç" ,font=("Arial",18),command="giriş")
-button2=tk.Button(mainpage,text="Kayıt ol" ,font=("Arial",18),command="ekle")
-button3=tk.Button(mainpage,text="Çıkış Yap" ,font=("Arial",18),command="çıkış")
-button4=tk.Button(mainpage,text="Kullanıcı Sil" ,font=("Arial",18),command="sil")
-button1.pack()
-button2.pack()
-button3.pack()
-button4.pack()
-com=button1,button2,button3,button4
+
 
 with open("Kullancı_Sistem/status.pkl","rb") as f:
     status=pickle.load(f)
