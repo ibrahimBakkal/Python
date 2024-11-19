@@ -1,0 +1,6 @@
+A0 Başla
+A1 sayi adında 0 a eşit bir değişken oluştur
+A2 i 0dan başlayarak 10 kadar birer birer arttır
+    A2.1sayi i ile topla ve sayi ya eşitle
+    A2.2sayi yi ekrana yazdır
+A3 Bitir
