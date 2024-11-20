@@ -14,3 +14,15 @@
 # c.sort()
 # c.reverse()
 # print(c)
+
+
+T1=-1
+T2=1
+for i in range(-5,5,6):
+    T1=T1+2*i
+    
+    for j in range(5,1,-3):
+        T1=T1-2*j
+        T2=T2-i
+    T2=T2+i
+print(f"[{T1}],[{T2}]")
