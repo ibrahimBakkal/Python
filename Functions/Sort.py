@@ -1,12 +1,11 @@
-a=[i for i in range(1,101)]
-import random
-random.shuffle(a)
 def buble(x):
+    import random
+    random.shuffle(x)
     count=0
-    while count<=len(a)-1:
+    while count<=len(x)-1:
         for i in range(len(x)-1):
-            if a[i]>a[i+1]:
-                a[i],a[i+1]=a[i+1],a[i]
+            if x[i]>x[i+1]:
+                x[i],x[i+1]=x[i+1],x[i]
                 count=0
             else:
                 count+=1
